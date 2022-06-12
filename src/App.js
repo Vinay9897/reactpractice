@@ -1,9 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import './JSXDemo';
+import JSXDemo from './JSXDemo';
 
 function App() {
   return (
-    const
+    // <div> 
+    // </div>
+    <JSXDemo />
   );
 }
 
