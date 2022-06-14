@@ -1,20 +1,24 @@
-import React from 'react';
-// // import ReactDOM from "react-dom";
-import ReactDOM from 'react-dom';
-export default class JSXDemo extends React {
-    // render() {
-    //     // return (
-    //     //     <h1>This is Vinay</h1>
-    //     // )
-    //     // const jsx = <h1> this is jsx</h1>
+import React, { Component } from 'react';
 
-    // }
-
-    //  using React.createElement
+export default class JSXDemo extends Component {
+    onvinay = () => {
+        let v = prompt("Vinay is good boy");
+        prompt(v);
+    };
     render() {
-        return React.createElement("h1", null, "This is Vinay");
+        return (
+            <React.Fragment>
+                <h1> this is frist jsx </h1>
+                <h1> this is second jsx </h1>
+                <button id="btn" onClick={this.onvinay}> Click Here</button>
+                < App1 />
+            </React.Fragment>
+        )
     }
-
 }
-ReactDOM.render(<JSXDemo />, document.getElementById("root"));
+const App1 = () => {
+    return (
+        <h1>New Class</h1>
+    );
+}
 
