@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 // function Hello() {
 //   return <p>{a + b}</p>;
 // }
-const a = 10;
-const b = 10;
+// const a = 10;
+// const b = 10;
 // ReactDOM.render(<Hello />, document.getElementById("root"));
 
 // class Operation extends React.Component {
@@ -18,4 +18,22 @@ const b = 10;
 //   }
 // };
 
-ReactDOM.render(<Operation />, document.getElementById("root"));
+function Operation(addition,) {
+  return addition.fValue + addition.sValue;
+}
+
+const addition = {
+  fValue: '10',
+  sValue: '20'
+}
+
+function getGreeting(user) {
+  if (addition) {
+    return <h1>Hello,{Operation(addition)}</h1>
+  }
+}
+ReactDOM.render(<h1>{getGreeting(addition)}</h1>, document.getElementById("root"));
+
+
+
+
