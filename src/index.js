@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
 
 
 
@@ -87,25 +88,58 @@ import './index.css';
 // setState() method to modify the state.
 
 
-//Counter App with setState() method
+//Counter App with setState() method=======================================
 
-class Counter extends React.Component {
-    state = {
-        counter: 0
-    }
-    increment = () => {
-        this.setState({
-            counter: this.state.counter + 1
-        });
-    }
+// class Counter extends React.Component {
+//     state = {
+//         counter: 0
+//     }
+//     increment = () => {
+//         this.setState({
+//             counter: this.state.counter + 1
+//         });
+//     }
 
-    render() {
-        return <div className='container'>
-            {this.state.counter}
-            <button onClick={this.increment}>Increment</button>
-        </div>
+//     render() {
+//         return <div className='container'>
+//             {this.state.counter}
+//             <button onClick={this.increment}>Increment</button>
+//         </div>
+//     }
+// }
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+
+
+//Hooks ===================================
+// It is feature of React allow to use state in the functional Components
+// we need to import the useState hook
+
+//useState()method
+// return a pair , current state value and a function
+
+// function Hello() {
+//     const [name, setName] = useState("Vinay Yadav");
+//     return <h1>Hello{name}</h1>;
+// }
+// ReactDOM.render(<Hello />, document.getElementById('root'));
+
+
+//Counter App Using Hooks --> useState() method
+
+function Counter() {
+    const [counter, setCounter] = useState(0);
+
+    function increment() {
+        setCounter(counter + 1);
     }
+    return <div className='container'>
+        <p>{counter}</p>
+        <button onClick={increment}>Increment</button>
+    </div>
 }
 ReactDOM.render(<Counter />, document.getElementById('root'));
 
-// export default Show;
+
+
+// export default Counter;

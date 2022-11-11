@@ -1,11 +1,13 @@
 import React from 'react';
-// import ReactDom from 'react-dom';
-import Show from 'index';
-
+import Counter from 'index';
+import ReactDOM from 'react-dom';
 const App = () => {
     return (
         <>
-            {/* <Show /> */}
+            <Counter />
         </>
     );
 };
+// ReactDOM.render(<App />, document.getElementById('root'));
+
+export default App;
