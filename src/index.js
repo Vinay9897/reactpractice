@@ -61,7 +61,7 @@ import './index.css';
 // states===========================
 // need of state
 // props cannot be changed
-//In order to allow components to manage and change their data, 
+//In order to allow components to manage and change their data,
 // React provides a feature called state.
 
 // State is object that is added as a property in class components.
@@ -84,7 +84,7 @@ import './index.css';
 // ReactDOM.render(<DemoClass />, document.getElementById("root"));
 
 // setState() method ===================================
-//state should not be modified directly.Instead,React provide the 
+//state should not be modified directly.Instead,React provide the
 // setState() method to modify the state.
 
 
@@ -127,19 +127,48 @@ import './index.css';
 
 //Counter App Using Hooks --> useState() method
 
-function Counter() {
-    const [counter, setCounter] = useState(0);
+// function Counter() {
+//     const [counter, setCounter] = useState(0);
 
-    function increment() {
-        setCounter(counter + 1);
+//     function increment() {
+//         setCounter(counter + 1);
+//     }
+//     return <div className='container'>
+//         <p>{counter}</p>
+//         <button onClick={increment}>Increment</button>
+//     </div>
+// }
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+// LifeCycle methods =============================================
+// React provides special lifecycle methods for class Componets
+// These method are called when components are
+// mounted(rendered),updated(modify),unmounted(removed)
+// lifeCycle methods
+// componentDidMount(),componentWillUnmount(),componentDidUpdate()
+
+// componentDidMount() method is called when a component is rendered  on the page.
+// componentWillUnmount() method is called right before the component is removed from the DOM.
+// componentDidUpdate() method is called when a component is updated on the DOM.
+
+class Counter extends React.Component {
+    state = {
+        counter: 0
     }
-    return <div className='container'>
-        <p>{counter}</p>
-        <button onClick={increment}>Increment</button>
-    </div>
+    increment = () => {
+        this.setState({ counter: this.state.counter + 1 })
+    }
+    componentDidMount() {
+        this.setState({ counter: 42 });
+    }
+    render() {
+        return <div className='container'>
+            <p>{this.state.counter}</p>
+            <button onClick={this.increment}>Increment</button>
+        </div>
+    }
 }
 ReactDOM.render(<Counter />, document.getElementById('root'));
-
 
 
 // export default Counter;
