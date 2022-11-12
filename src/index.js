@@ -176,21 +176,48 @@ import './index.css';
 // in Functional Components
 // useEffect combine all lifecycle methods into one
 
-function Counter() {
-    const [counter, setCounter] = useState(0);
+// function Counter() {
+//     const [counter, setCounter] = useState(0);
 
-    useEffect(() => {
-        alert("No of clicks : " + counter);
-    });
-    function increment() {
-        setCounter(counter + 1);
+//     useEffect(() => {
+//         alert("No of clicks : " + counter);
+//     });
+//     function increment() {
+//         setCounter(counter + 1);
+//     }
+
+//     return <div className='container'>
+//         <p>{counter}</p>
+//         <button onClick={increment}>Increment</button>
+//     </div>
+// }
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+
+// form===========================
+
+function AddForm() {
+    // state 1
+    const [num, setNum] = useState(0);
+    // state 2
+    const [sum, setSum] = useState(0);
+
+    //
+    function handleChange(e) {
+        setNum(e.target.value);
+    }
+    function addition(e) {
+        setSum(sum + Number(num));
+        e.preventDefault();
     }
 
     return <div className='container'>
-        <p>{counter}</p>
-        <button onClick={increment}>Increment</button>
+        <form>
+            <input type="number" value={num} onChange={handleChange}></input>
+            <input type="submit" value="Add" onClick={addition}></input>
+            <p>Sum is {sum}</p>
+        </form>
     </div>
 }
-ReactDOM.render(<Counter />, document.getElementById('root'));
-
+ReactDOM.render(<AddForm />, document.getElementById('root'));
 // export default Counter;
