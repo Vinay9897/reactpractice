@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -196,28 +196,46 @@ import './index.css';
 
 // form===========================
 
-function AddForm() {
-    // state 1
-    const [num, setNum] = useState(0);
-    // state 2
-    const [sum, setSum] = useState(0);
+// function AddForm() {
+//     // state 1, use hook (useState())
+//     const [num, setNum] = useState(0);
+//     // state 2
+//     const [sum, setSum] = useState(0);
 
-    //
-    function handleChange(e) {
-        setNum(e.target.value);
-    }
-    function addition(e) {
-        setSum(sum + Number(num));
-        e.preventDefault();
-    }
+//     //
+//     function handleChange(e) {
+//         setNum(e.target.value);
+//     }
+//     function addition(e) {
+//         setSum(sum + Number(num));
+//         e.preventDefault();
+//     }
 
-    return <div className='container'>
-        <form>
-            <input type="number" value={num} onChange={handleChange}></input>
-            <input type="submit" value="Add" onClick={addition}></input>
-            <p>Sum is {sum}</p>
-        </form>
-    </div>
+//     return <div className='container'>
+//         <form>
+//             <input type="number" value={num} onChange={handleChange}></input>
+//             <input type="submit" value="Add" onClick={addition}></input>
+//             <p>Sum is {sum}</p>
+//         </form>
+//     </div>
+// }
+// ReactDOM.render(<AddForm />, document.getElementById('root'));
+
+
+
+// Lists
+// We need to render a list <li> element for each item in the array.
+const arr = ["A", "B", "C"];
+// pass array (arr) as a prop in the Component
+function MyList(props) {
+    const arr = props.data;
+    console.log(arr);
+    const listItems = arr.map((val) =>
+        <li>{val}</li>
+    );
+    return <ul>{listItems}</ul>;
 }
-ReactDOM.render(<AddForm />, document.getElementById('root'));
+ReactDOM.render(<MyList data={arr} />, document.getElementById('root'))
+
+
 // export default Counter;
