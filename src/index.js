@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -151,24 +151,46 @@ import './index.css';
 // componentWillUnmount() method is called right before the component is removed from the DOM.
 // componentDidUpdate() method is called when a component is updated on the DOM.
 
-class Counter extends React.Component {
-    state = {
-        counter: 0
+// class Counter extends React.Component {
+//     state = {
+//         counter: 0
+//     }
+//     increment = () => {
+//         this.setState({ counter: this.state.counter + 1 })
+//     }
+//     componentDidMount() {
+//         this.setState({ counter: 42 });
+//     }
+//     render() {
+//         return <div className='container'>
+//             <p>{this.state.counter}</p>
+//             <button onClick={this.increment}>Increment</button>
+//         </div>
+//     }
+// }
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+
+//LifeCycle methods with Functional Componenets=========================
+// React provide special Hook called "useEffect" to use LifeCycle method
+// in Functional Components
+// useEffect combine all lifecycle methods into one
+
+function Counter() {
+    const [counter, setCounter] = useState(0);
+
+    useEffect(() => {
+        alert("No of clicks : " + counter);
+    });
+    function increment() {
+        setCounter(counter + 1);
     }
-    increment = () => {
-        this.setState({ counter: this.state.counter + 1 })
-    }
-    componentDidMount() {
-        this.setState({ counter: 42 });
-    }
-    render() {
-        return <div className='container'>
-            <p>{this.state.counter}</p>
-            <button onClick={this.increment}>Increment</button>
-        </div>
-    }
+
+    return <div className='container'>
+        <p>{counter}</p>
+        <button onClick={increment}>Increment</button>
+    </div>
 }
 ReactDOM.render(<Counter />, document.getElementById('root'));
-
 
 // export default Counter;
